@@ -4,8 +4,6 @@ var velocity= Vector2()
 export var speed = 200
 export var gravity = 200
 
-var cartas = false
-
 func _ready():
 	pass # Replace with function body.
 

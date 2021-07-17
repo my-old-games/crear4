@@ -1,40 +1,63 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://escenas/Carta.tscn" type="PackedScene" id=1]
 [ext_resource path="res://escenas/Carta2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://escenas/Ranura.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/Puzzle.gd" type="Script" id=4]
+[ext_resource path="res://assets/imagenes/prototipo02/panel_beige.png" type="Texture" id=5]
+[ext_resource path="res://assets/imagenes/prototipo02/flatLight45.png" type="Texture" id=6]
 
 [node name="Puzzle" type="Node2D"]
+light_mask = 524288
 script = ExtResource( 4 )
 
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 160, 0 )
+scale = Vector2( 3.5, 3.5 )
+texture = ExtResource( 5 )
+centered = false
+
 [node name="Ranuras" type="Node2D" parent="."]
+light_mask = 524288
+position = Vector2( 13.435, -65.0538 )
 
 [node name="Ranura" parent="Ranuras" instance=ExtResource( 3 )]
-position = Vector2( 116.541, 305.125 )
+position = Vector2( 209.404, 309.887 )
 palabra = "SAN MARTIN"
 
 [node name="Ranura2" parent="Ranuras" instance=ExtResource( 3 )]
-position = Vector2( 512.78, 303.006 )
+position = Vector2( 424.679, 309.356 )
 palabra = "SABLE"
 
 [node name="Ranura3" parent="Ranuras" instance=ExtResource( 3 )]
-position = Vector2( 293.471, 304.066 )
-scale = Vector2( 1, 1 )
+position = Vector2( 312.52, 308.828 )
 palabra = "TIENE"
 
 [node name="Carta" parent="." instance=ExtResource( 1 )]
-position = Vector2( 103.827, 56.1515 )
+position = Vector2( 223.099, 86.99 )
 palabra = "SAN MARTIN"
 
 [node name="Carta3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 514.899, 61.4488 )
+position = Vector2( 437.391, 86.818 )
 palabra = "TIENE"
 
 [node name="Carta2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 308.304, 59.3299 )
+light_mask = 1
+position = Vector2( 327.613, 84.6126 )
 palabra = "SABLE"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 475.221
+margin_top = 5.20455
+margin_right = 555.221
+margin_bottom = 85.2046
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="acertado" from="Ranuras/Ranura" to="." method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura2" to="." method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura3" to="." method="_on_Ranura_acertado"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]

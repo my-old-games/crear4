@@ -25,3 +25,7 @@ func _on_Ranura_acertado():
 	if ocupados == ranuras.size():
 		print("COMPLETADO")
 		emit_signal("completado")
+
+
+func _on_TextureButton_pressed():
+	self.hide()

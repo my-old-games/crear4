@@ -16,7 +16,7 @@ func _ready():
 #	pass
 func abrir_Puerta():
 	$AnimatedSprite.play("ABIERTO")
-
+  
 func _on_Puerta_body_entered(body):
 	if $AnimatedSprite.animation  == "ABIERTO" :
 		print("VICTORIA")

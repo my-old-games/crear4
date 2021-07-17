@@ -2,7 +2,7 @@
 
 [ext_resource path="res://escenas/Suyay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://escenas/Puerta.tscn" type="PackedScene" id=2]
-[ext_resource path="res://escenas/Mesa.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interfaces/Controles.tscn" type="PackedScene" id=3]
 [ext_resource path="res://escenas/Panel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://escenas/Puzzle.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/Nivel.gd" type="Script" id=6]
@@ -11,44 +11,49 @@
 extents = Vector2( 320.018, 10 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 239.431, 10 )
+extents = Vector2( 130.443, 10 )
 
 [node name="Nivel01" type="Node2D"]
 script = ExtResource( 6 )
 
 [node name="Piso" type="StaticBody2D" parent="."]
-position = Vector2( 320, 480 )
+light_mask = 2
+position = Vector2( 320, 360 )
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Piso"]
 shape = SubResource( 1 )
 
 [node name="ParedA" type="StaticBody2D" parent="."]
+light_mask = 2
 position = Vector2( 650, 240 )
 rotation = 1.5708
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedA"]
 shape = SubResource( 2 )
 
 [node name="ParedB" type="StaticBody2D" parent="."]
+light_mask = 2
 position = Vector2( -10, 240 )
 rotation = 1.5708
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedB"]
 shape = SubResource( 2 )
 
 [node name="Puerta" parent="." instance=ExtResource( 2 )]
-position = Vector2( 330.545, 389.706 )
-
-[node name="Mesa" parent="." instance=ExtResource( 3 )]
-position = Vector2( 56.1549, 445.136 )
+position = Vector2( 328.618, 245.595 )
 
 [node name="Panel" parent="." instance=ExtResource( 4 )]
-position = Vector2( 187.484, 413.751 )
+position = Vector2( 131.827, 281.203 )
 
 [node name="Suyay" parent="." instance=ExtResource( 1 )]
-position = Vector2( 561.541, 459.654 )
+position = Vector2( 591.541, 334.713 )
 
 [node name="Puzzle" parent="." instance=ExtResource( 5 )]
+
+[node name="Controles" parent="." instance=ExtResource( 3 )]
 
 [connection signal="verPuzzle" from="Panel" to="." method="_on_Panel_verPuzzle"]
 [connection signal="completado" from="Puzzle" to="." method="_on_Puzzle_completado"]

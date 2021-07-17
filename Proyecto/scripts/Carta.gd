@@ -1,13 +1,16 @@
 extends KinematicBody2D
 
+export var palabra = "SI"
+
 var dragging = false
 var pick = true
-export var palabra = "SI"
+var init_pos
 
 signal dragsignal;
 
 func _ready():
 	connect("dragsignal",self,"_set_drag_pc")
+	init_pos = self.global_position
 
 func _process(delta):
 	if dragging and pick:
