@@ -11,6 +11,7 @@ config_version=4
 [application]
 
 config/name="Suyay"
+run/main_scene="res://niveles/Nivel01.tscn"
 config/icon="res://icon.png"
 
 [display]
