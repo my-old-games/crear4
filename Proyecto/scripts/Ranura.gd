@@ -10,6 +10,7 @@ func _on_Ranura_body_entered(body):
 		body.global_position = self.global_position
 		ocupada = true
 		emit_signal("acertado")
+		$AnimatedSprite.play("OCUPADA")
 	else:
 		body.dragging = false
 		body.global_position = body.init_pos

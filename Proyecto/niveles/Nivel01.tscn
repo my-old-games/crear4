@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://escenas/Suyay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://escenas/Puerta.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://escenas/Panel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://escenas/Puzzle.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/Nivel.gd" type="Script" id=6]
+[ext_resource path="res://escenas/Cuadro.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 320.018, 10 )
@@ -42,16 +43,24 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedB"]
 shape = SubResource( 2 )
 
+[node name="Cuadro" parent="." instance=ExtResource( 7 )]
+position = Vector2( 114.691, 131.661 )
+scale = Vector2( 0.3, 0.3 )
+tiempo_pista = 3
+
 [node name="Puerta" parent="." instance=ExtResource( 2 )]
-position = Vector2( 328.618, 245.595 )
+position = Vector2( 329.213, 269.379 )
+scale = Vector2( 2.5, 2.5 )
 
 [node name="Panel" parent="." instance=ExtResource( 4 )]
-position = Vector2( 131.827, 281.203 )
+position = Vector2( 511.543, 300.295 )
+tiempo_pista = 1
 
 [node name="Suyay" parent="." instance=ExtResource( 1 )]
-position = Vector2( 591.541, 334.713 )
+position = Vector2( 97.9804, 333.299 )
 
 [node name="Puzzle" parent="." instance=ExtResource( 5 )]
+visible = false
 
 [node name="Controles" parent="." instance=ExtResource( 3 )]
 
