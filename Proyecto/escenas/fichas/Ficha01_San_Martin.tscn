@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://escenas/Ficha.tscn" type="PackedScene" id=1]
+
+[node name="Ficha_San_Martin" instance=ExtResource( 1 )]
+palabra = "SAN MARTIN"

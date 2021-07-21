@@ -3,8 +3,12 @@
 [ext_resource path="res://escenas/Carta.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/imagenes/prototipo03/SAN-MARTIN-CARD.png" type="Texture" id=2]
 
-[node name="Carta" instance=ExtResource( 1 )]
+[node name="Carta01_San_Martin" instance=ExtResource( 1 )]
+palabra = "SAN MARTIN"
 
 [node name="Avatar" parent="." index="2"]
 scale = Vector2( 0.28, 0.28 )
 texture = ExtResource( 2 )
+
+[node name="Label" parent="." index="3"]
+text = "SAN MARTIN"

@@ -5,11 +5,15 @@ extends Node2D
 # var a = 2
 # var b = "text"
 var ranuras
+var cartas
+
 signal completado
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ranuras = $Ranuras.get_children()
-	ocultar_Puzzle()
+	cartas  = $Cartas.get_children()
+	for carta in cartas:
+		carta.ocultar_Carta()
 
 func ocultar_Puzzle():
 	self.hide()
