@@ -8,6 +8,7 @@ var ranuras
 var cartas
 
 signal completado
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ranuras = $Ranuras.get_children()
@@ -27,9 +28,11 @@ func _on_Ranura_acertado():
 		if ranura.ocupada:
 			ocupados += 1
 	if ocupados == ranuras.size():
-		print("COMPLETADO")
 		emit_signal("completado")
-
+		self.ocultar_Puzzle()
 
 func _on_TextureButton_pressed():
-	self.hide()
+	self.ocultar_Puzzle()
+
+func _on_Panel_verPuzzle():
+	self.mostrar_Puzzle()

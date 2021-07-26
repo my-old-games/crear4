@@ -1,11 +1,16 @@
 extends Node2D
 
+var pines
+var resueltos = 0
+
 func _ready():
-	pass # Replace with function body.
+	pines = $Pines.get_children()
 
 func _on_Puzzle_completado():
-	$Puerta.abrir_Puerta()
-	$Puzzle.ocultar_Puzzle()
+	resueltos+= 1
+	if pines.size() == resueltos:
+		$Mapa/Puerta.abrir_Puerta()
 
-func _on_Panel_verPuzzle():
-	$Puzzle.mostrar_Puzzle()
+func verificar_pines():
+	for pin in pines:
+		print(pin.esta_abierto())

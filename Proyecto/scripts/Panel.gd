@@ -16,18 +16,16 @@ func _ready():
 		$Timer.set_wait_time(tiempo_pista)
 		$Timer.start()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if isPlayer and Input.is_action_pressed("ui_see"):
 		emit_signal("verPuzzle")
 
-func _on_Panel_body_entered(body):
+func _on_Panel_body_entered(_body):
 	isPlayer = true
 
-func _on_Panel_body_exited(body):
+func _on_Panel_body_exited(_body):
 	isPlayer = false
-
 
 func _on_Timer_timeout():
 	$AnimationPlayer.play("BRILLAR")

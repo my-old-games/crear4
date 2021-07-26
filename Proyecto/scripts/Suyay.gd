@@ -20,4 +20,4 @@ func _process(delta):
 	if !Input.is_action_pressed("ui_left") and !Input.is_action_pressed("ui_right"):
 		velocity.x = 0
 		$AnimatedSprite.play("IDLE")
-	move_and_slide(velocity,Vector2(0,-1))
+	velocity = move_and_slide(velocity,Vector2(0,-1))

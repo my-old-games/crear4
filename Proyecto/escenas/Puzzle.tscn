@@ -26,24 +26,27 @@ centered = false
 position = Vector2( 557.513, 127.816 )
 
 [node name="Carta01_San_Martin" parent="Cartas" instance=ExtResource( 7 )]
+modulate = Color( 1, 1, 1, 1 )
 
 [node name="Carta02_Sable" parent="Cartas" instance=ExtResource( 8 )]
+modulate = Color( 1, 1, 1, 1 )
 
 [node name="Carta03_Tiene" parent="Cartas" instance=ExtResource( 1 )]
+modulate = Color( 1, 1, 1, 1 )
 
 [node name="Ranuras" type="Node2D" parent="."]
 light_mask = 524288
 position = Vector2( 13.435, -65.0538 )
 
-[node name="Ranura" parent="Ranuras" instance=ExtResource( 3 )]
+[node name="Ranura_San_Martin" parent="Ranuras" instance=ExtResource( 3 )]
 position = Vector2( 180.413, 312.715 )
 palabra = "SAN MARTIN"
 
-[node name="Ranura2" parent="Ranuras" instance=ExtResource( 3 )]
+[node name="Ranura_Sable" parent="Ranuras" instance=ExtResource( 3 )]
 position = Vector2( 399.223, 313.599 )
 palabra = "SABLE"
 
-[node name="Ranura3" parent="Ranuras" instance=ExtResource( 3 )]
+[node name="Ranura_Tiene" parent="Ranuras" instance=ExtResource( 3 )]
 position = Vector2( 290.6, 311.656 )
 palabra = "TIENE"
 
@@ -77,9 +80,12 @@ position = Vector2( 185.838, 80.7259 )
 [node name="Ficha_Tiene" parent="." instance=ExtResource( 10 )]
 position = Vector2( 423.811, 76.5214 )
 
-[connection signal="acertado" from="Ranuras/Ranura" to="." method="_on_Ranura_acertado"]
-[connection signal="acertado" from="Ranuras/Ranura2" to="." method="_on_Ranura_acertado"]
-[connection signal="acertado" from="Ranuras/Ranura3" to="." method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_San_Martin" to="Cartas/Carta01_San_Martin" method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_San_Martin" to="." method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_Sable" to="Cartas/Carta02_Sable" method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_Sable" to="." method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_Tiene" to="Cartas/Carta03_Tiene" method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_Tiene" to="." method="_on_Ranura_acertado"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="hidecard" from="Ficha_San_Martin" to="Cartas/Carta01_San_Martin" method="ocultar_Carta"]
 [connection signal="showcard" from="Ficha_San_Martin" to="Cartas/Carta01_San_Martin" method="mostrar_Carta"]

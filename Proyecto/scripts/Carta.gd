@@ -3,9 +3,10 @@ extends KinematicBody2D
 export var palabra = "SI"
 
 func ocultar_Carta():
-	self.hide()
+	$AnimationPlayer.play("OCULTAR")
 
 func mostrar_Carta():
-	self.show()
+	$AnimationPlayer.play("MOSTRAR")
 
-
+func _on_Ranura_acertado():
+	self.ocultar_Carta()

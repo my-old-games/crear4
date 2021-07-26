@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/imagenes/prototipo05/g8615.png" type="Texture" id=1]
+[ext_resource path="res://assets/imagenes/prototipo05/g8611.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Pin.gd" type="Script" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "ABIERTO",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "CERRADO",
+"speed": 5.0
+} ]
+
+[node name="Pin" type="Node2D"]
+scale = Vector2( 0.3, 0.3 )
+script = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "CERRADO"
