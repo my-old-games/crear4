@@ -19,6 +19,7 @@ extents = Vector2( 320.018, 10 )
 script = ExtResource( 6 )
 
 [node name="Controles" parent="." instance=ExtResource( 3 )]
+position = Vector2( 12.0512, 303.565 )
 
 [node name="Mapa" type="Node2D" parent="."]
 
@@ -55,7 +56,7 @@ scale = Vector2( 2.5, 2.5 )
 [node name="Cuadros" type="Node2D" parent="."]
 
 [node name="Cuadro" parent="Cuadros" instance=ExtResource( 7 )]
-position = Vector2( 114.691, 131.661 )
+position = Vector2( 153.647, 185.6 )
 scale = Vector2( 0.3, 0.3 )
 tiempo_pista = 3
 
