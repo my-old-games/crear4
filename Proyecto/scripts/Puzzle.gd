@@ -17,10 +17,10 @@ func _ready():
 		carta.ocultar_Carta()
 
 func ocultar_Puzzle():
-	self.hide()
+	hide()
 
 func mostrar_Puzzle():
-	self.show()
+	show()
 
 func _on_Ranura_acertado():
 	var ocupados = 0
@@ -29,10 +29,10 @@ func _on_Ranura_acertado():
 			ocupados += 1
 	if ocupados == ranuras.size():
 		emit_signal("completado")
-		self.ocultar_Puzzle()
+		ocultar_Puzzle()
 
 func _on_TextureButton_pressed():
-	self.ocultar_Puzzle()
+	ocultar_Puzzle()
 
 func _on_Panel_verPuzzle():
-	self.mostrar_Puzzle()
+	mostrar_Puzzle()

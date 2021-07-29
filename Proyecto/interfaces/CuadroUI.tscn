@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/imagenes/prototipo02/panel_beigeLight.png" type="Texture" id=1]
+[ext_resource path="res://assets/imagenes/prototipo02/flatLight45.png" type="Texture" id=2]
+[ext_resource path="res://scripts/interfaces/CuadroUI.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "MOSTRAR"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "OCULTAR"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="CuadroUI" type="Node2D"]
+modulate = Color( 1, 1, 1, 0 )
+script = ExtResource( 3 )
+
+[node name="Fondo" type="Sprite" parent="."]
+position = Vector2( 322.329, 177.539 )
+scale = Vector2( 3.19576, 3.03166 )
+texture = ExtResource( 1 )
+
+[node name="Cuadro" type="Sprite" parent="."]
+position = Vector2( 327.083, 177.761 )
+
+[node name="TextureButton" type="TextureButton" parent="."]
+light_mask = 256
+margin_left = 447.163
+margin_top = 15.5944
+margin_right = 492.163
+margin_bottom = 60.5944
+action_mode = 0
+button_mask = 7
+texture_normal = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/MOSTRAR = SubResource( 1 )
+anims/OCULTAR = SubResource( 2 )
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]

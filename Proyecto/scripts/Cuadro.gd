@@ -2,22 +2,26 @@ extends Node2D
 
 export var pista = true
 export var tiempo_pista = 2
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
+var isPlayer = false
+
+signal verCuadro;
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	if pista:
 		$Timer.set_wait_time(tiempo_pista)
 		$Timer.start()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+func _process(_delta):
+	if isPlayer and Input.is_action_pressed("ui_see"):
+		emit_signal("verCuadro", $Pintura.get_texture(), $Pintura.get_global_scale())
 
 func _on_Timer_timeout():
 	$AnimationPlayer.play("BRILLAR")
+
+func _on_Cuadro_body_entered(body):
+	isPlayer = true
+
+func _on_Cuadro_body_exited(body):
+	isPlayer = false
