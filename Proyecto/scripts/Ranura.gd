@@ -4,6 +4,9 @@ export var palabra = "SI"
 var ocupada = false
 signal acertado;
 
+func _ready():
+	$Palabra.text = ''
+
 func _on_Ranura_body_entered(body):
 	if !ocupada:
 		if palabra == body.palabra:
@@ -12,6 +15,7 @@ func _on_Ranura_body_entered(body):
 			ocupada = true
 			emit_signal("acertado")
 			$AnimatedSprite.play("OCUPADA")
+			$Palabra.text = body.palabra
 			body.animar_acierto()
 		else:
 			body._set_drag_pc()

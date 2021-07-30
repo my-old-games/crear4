@@ -8,7 +8,7 @@
 resource_name = "MOSTRAR"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath("Panel:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -19,24 +19,12 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
-}
 
 [sub_resource type="Animation" id=2]
 resource_name = "OCULTAR"
-length = 0.6
+length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath("Panel:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -47,53 +35,29 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.6 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, -400 ) ]
-}
 
-[node name="CuadroUI" type="Node2D"]
-modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 0, -400 )
-z_index = 600
+[node name="CuadroUI" type="CanvasLayer"]
+layer = 2
 script = ExtResource( 3 )
 
-[node name="Fondo" type="Sprite" parent="."]
+[node name="Panel" type="Node2D" parent="."]
+
+[node name="Fondo" type="Sprite" parent="Panel"]
 position = Vector2( 322.329, 177.539 )
 scale = Vector2( 3.19576, 3.03166 )
 texture = ExtResource( 1 )
 
-[node name="Cuadro" type="Sprite" parent="."]
+[node name="Cuadro" type="Sprite" parent="Panel"]
 position = Vector2( 327.083, 177.761 )
 
-[node name="TextureButton" type="TextureButton" parent="."]
-light_mask = 256
-margin_left = 447.163
-margin_top = 15.5944
-margin_right = 492.163
-margin_bottom = 60.5944
-button_mask = 7
-texture_normal = ExtResource( 2 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="CloseButton" type="TouchScreenButton" parent="Panel"]
+position = Vector2( 444.647, 19.8398 )
+scale = Vector2( 0.5, 0.5 )
+normal = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/MOSTRAR = SubResource( 1 )
 anims/OCULTAR = SubResource( 2 )
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.8
-one_shot = true
-
-[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

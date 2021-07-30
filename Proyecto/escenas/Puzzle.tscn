@@ -69,7 +69,6 @@ tracks/1/keys = {
 }
 
 [node name="Puzzle" type="Node2D"]
-modulate = Color( 1, 1, 1, 0 )
 light_mask = 524288
 z_index = 700
 script = ExtResource( 4 )
@@ -108,19 +107,6 @@ palabra = "SABLE"
 position = Vector2( 290.6, 311.656 )
 palabra = "TIENE"
 
-[node name="TextureButton" type="TextureButton" parent="."]
-margin_left = 437.037
-margin_top = 6.61876
-margin_right = 517.037
-margin_bottom = 86.6188
-rect_scale = Vector2( 0.5, 0.5 )
-button_mask = 7
-texture_normal = ExtResource( 6 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 250.755, 249.934 )
 scale = Vector2( 0.2, 0.2 )
@@ -144,16 +130,22 @@ position = Vector2( 423.811, 76.5214 )
 anims/MOSTRAR = SubResource( 1 )
 anims/OCULTAR = SubResource( 2 )
 
+[node name="CloseButton" type="TouchScreenButton" parent="."]
+position = Vector2( 439.865, -1.15941 )
+scale = Vector2( 0.5, 0.5 )
+normal = ExtResource( 6 )
+
 [connection signal="acertado" from="Ranuras/Ranura_San_Martin" to="Cartas/Carta01_San_Martin" method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura_San_Martin" to="." method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura_Sable" to="Cartas/Carta02_Sable" method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura_Sable" to="." method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura_Tiene" to="Cartas/Carta03_Tiene" method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura_Tiene" to="." method="_on_Ranura_acertado"]
-[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="hidecard" from="Ficha_San_Martin" to="Cartas/Carta01_San_Martin" method="ocultar_Carta"]
 [connection signal="showcard" from="Ficha_San_Martin" to="Cartas/Carta01_San_Martin" method="mostrar_Carta"]
 [connection signal="hidecard" from="Ficha_Sable" to="Cartas/Carta02_Sable" method="ocultar_Carta"]
 [connection signal="showcard" from="Ficha_Sable" to="Cartas/Carta02_Sable" method="mostrar_Carta"]
 [connection signal="hidecard" from="Ficha_Tiene" to="Cartas/Carta03_Tiene" method="ocultar_Carta"]
 [connection signal="showcard" from="Ficha_Tiene" to="Cartas/Carta03_Tiene" method="mostrar_Carta"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_CloseButton_pressed"]

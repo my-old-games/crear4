@@ -13,7 +13,7 @@ signal hidecard;
 
 func _ready():
 	connect("dragsignal",self,"_set_drag_pc")
-	init_pos = global_position
+	init_pos = position
 
 func _process(_delta):
 	if dragging and !acertada:

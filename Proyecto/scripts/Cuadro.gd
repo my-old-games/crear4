@@ -13,8 +13,8 @@ func _ready():
 		$Timer.set_wait_time(tiempo_pista)
 		$Timer.start()
 
-func _process(_delta):
-	if isPlayer and Input.is_action_just_released("ui_see"):
+func _input(event):
+	if event.is_action_pressed("ui_see") and isPlayer:
 		emit_signal("verCuadro", $Pintura.get_texture(), $Pintura.get_global_scale())
 
 func _on_Timer_timeout():

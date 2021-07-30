@@ -19,9 +19,6 @@ extents = Vector2( 320.018, 10 )
 [node name="Nivel01" type="Node2D"]
 script = ExtResource( 6 )
 
-[node name="Controles" parent="." instance=ExtResource( 3 )]
-position = Vector2( 12.0512, 303.565 )
-
 [node name="Mapa" type="Node2D" parent="."]
 
 [node name="ParedB" type="StaticBody2D" parent="Mapa"]
@@ -61,6 +58,8 @@ position = Vector2( 153.647, 185.6 )
 scale = Vector2( 0.3, 0.3 )
 tiempo_pista = 3
 
+[node name="CuadroUI" parent="." instance=ExtResource( 9 )]
+
 [node name="Paneles" type="Node2D" parent="."]
 
 [node name="Panel" parent="Paneles" instance=ExtResource( 4 )]
@@ -73,16 +72,17 @@ position = Vector2( 323.742, 154.802 )
 [node name="Pin" parent="Pines" instance=ExtResource( 8 )]
 position = Vector2( 5.55585, 3.96851 )
 
-[node name="CuadroUI" parent="." instance=ExtResource( 9 )]
-
 [node name="Puzzles" type="Node2D" parent="."]
 
 [node name="Puzzle" parent="Puzzles" instance=ExtResource( 5 )]
+position = Vector2( -83.7445, -391.995 )
 
 [node name="Suyay" parent="." instance=ExtResource( 1 )]
 position = Vector2( 97.9804, 333.299 )
 
+[node name="Controles" parent="." instance=ExtResource( 3 )]
+
 [connection signal="verCuadro" from="Cuadros/Cuadro" to="CuadroUI" method="mostrar_ui"]
 [connection signal="verPuzzle" from="Paneles/Panel" to="Puzzles/Puzzle" method="_on_Panel_verPuzzle"]
-[connection signal="completado" from="Puzzles/Puzzle" to="." method="_on_Puzzle_completado"]
 [connection signal="completado" from="Puzzles/Puzzle" to="Pines/Pin" method="_on_Puzzle_completado"]
+[connection signal="completado" from="Puzzles/Puzzle" to="." method="_on_Puzzle_completado"]
