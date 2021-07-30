@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://escenas/cartas/Carta03_Tiene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://escenas/fichas/Ficha01_San_Martin.tscn" type="PackedScene" id=2]
@@ -12,8 +12,66 @@
 [ext_resource path="res://escenas/fichas/Ficha03_Tiene.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/imagenes/prototipo04/flecha.png" type="Texture" id=11]
 
+[sub_resource type="Animation" id=1]
+resource_name = "MOSTRAR"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "OCULTAR"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.601 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 600, -400 ) ]
+}
+
 [node name="Puzzle" type="Node2D"]
+modulate = Color( 1, 1, 1, 0 )
 light_mask = 524288
+z_index = 700
 script = ExtResource( 4 )
 
 [node name="Fondo" type="Sprite" parent="."]
@@ -81,6 +139,10 @@ position = Vector2( 185.838, 80.7259 )
 
 [node name="Ficha_Tiene" parent="." instance=ExtResource( 10 )]
 position = Vector2( 423.811, 76.5214 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/MOSTRAR = SubResource( 1 )
+anims/OCULTAR = SubResource( 2 )
 
 [connection signal="acertado" from="Ranuras/Ranura_San_Martin" to="Cartas/Carta01_San_Martin" method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura_San_Martin" to="." method="_on_Ranura_acertado"]

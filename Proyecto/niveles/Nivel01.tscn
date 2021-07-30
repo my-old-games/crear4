@@ -78,12 +78,11 @@ position = Vector2( 5.55585, 3.96851 )
 [node name="Puzzles" type="Node2D" parent="."]
 
 [node name="Puzzle" parent="Puzzles" instance=ExtResource( 5 )]
-visible = false
 
 [node name="Suyay" parent="." instance=ExtResource( 1 )]
 position = Vector2( 97.9804, 333.299 )
 
 [connection signal="verCuadro" from="Cuadros/Cuadro" to="CuadroUI" method="mostrar_ui"]
 [connection signal="verPuzzle" from="Paneles/Panel" to="Puzzles/Puzzle" method="_on_Panel_verPuzzle"]
-[connection signal="completado" from="Puzzles/Puzzle" to="Pines/Pin" method="_on_Puzzle_completado"]
 [connection signal="completado" from="Puzzles/Puzzle" to="." method="_on_Puzzle_completado"]
+[connection signal="completado" from="Puzzles/Puzzle" to="Pines/Pin" method="_on_Puzzle_completado"]

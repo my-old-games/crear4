@@ -9,4 +9,4 @@ func mostrar_Carta():
 	$AnimationPlayer.play("MOSTRAR")
 
 func _on_Ranura_acertado():
-	self.ocultar_Carta()
+	ocultar_Carta()

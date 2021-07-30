@@ -13,12 +13,12 @@ signal hidecard;
 
 func _ready():
 	connect("dragsignal",self,"_set_drag_pc")
-	init_pos = self.global_position
+	init_pos = global_position
 
 func _process(_delta):
 	if dragging and !acertada:
 		var mousepos = get_viewport().get_mouse_position()
-		self.position = Vector2(mousepos.x, mousepos.y)
+		position = Vector2(mousepos.x, mousepos.y)
 
 func _set_drag_pc():
 	if !acertada:
@@ -27,7 +27,7 @@ func _set_drag_pc():
 			emit_signal("showcard")
 		else:
 			emit_signal("hidecard")
-			self.reposicionar_ficha(self.global_position)
+			reposicionar_ficha(global_position)
 			esperar_reposicion()
 
 func _on_Ficha_input_event(_viewport, event, _shape_idx):
@@ -39,7 +39,7 @@ func _on_Ficha_input_event(_viewport, event, _shape_idx):
 				emit_signal("dragsignal")
 		elif event is InputEventScreenTouch:
 			if event.pressed and event.get_index() == 0:
-				self.position = event.get_position()
+				position = event.get_position()
 			
 func reposicionar_ficha(desde):
 	$Tween.interpolate_property(self, "position",

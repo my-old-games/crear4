@@ -6,19 +6,20 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "ABIERTO",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "CERRADO",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "ABIERTO",
 "speed": 5.0
 } ]
 
 [node name="Pin" type="Node2D"]
 scale = Vector2( 0.3, 0.3 )
+z_index = 300
 script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

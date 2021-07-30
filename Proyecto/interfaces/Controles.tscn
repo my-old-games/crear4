@@ -7,6 +7,7 @@
 
 [node name="Controles" type="Node2D"]
 position = Vector2( 18.4997, 294.314 )
+z_index = 600
 script = ExtResource( 1 )
 
 [node name="LeftButton" type="TextureButton" parent="."]

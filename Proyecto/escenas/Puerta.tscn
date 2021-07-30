@@ -24,6 +24,7 @@ extents = Vector2( 30.9887, 35.681 )
 light_mask = 4
 position = Vector2( 4.00452, 0 )
 scale = Vector2( 3, 3 )
+z_index = 400
 collision_layer = 4
 script = ExtResource( 3 )
 

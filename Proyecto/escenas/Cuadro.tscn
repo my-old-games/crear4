@@ -36,6 +36,7 @@ tracks/1/keys = {
 extents = Vector2( 209.701, 281.373 )
 
 [node name="Cuadro" type="Area2D"]
+z_index = 400
 collision_layer = 4
 script = ExtResource( 3 )
 
