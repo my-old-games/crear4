@@ -1,9 +1,5 @@
 extends Area2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 signal verPuzzle;
 var isPlayer = false
 
@@ -15,15 +11,16 @@ func _ready():
 		$Timer.set_wait_time(tiempo_pista)
 		$Timer.start()
 
-func _input(event):
-	if event.is_action_pressed("ui_see") and isPlayer:
-		emit_signal("verPuzzle")
-
-func _on_Panel_body_entered(_body):
+func _on_Panel_body_entered(body):
 	isPlayer = true
+	body.elemento = self
 
-func _on_Panel_body_exited(_body):
+func _on_Panel_body_exited(body):
 	isPlayer = false
+	body.elemento = self
 
 func _on_Timer_timeout():
 	$AnimationPlayer.play("BRILLAR")
+
+func ver_elemento():
+	emit_signal("verPuzzle")
