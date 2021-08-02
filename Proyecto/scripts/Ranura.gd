@@ -1,12 +1,14 @@
 extends Area2D
-
+# ---------------- VARIABLES CONFIGURABLES  ---------------
 export var palabra = "SI"
+# ---------------- VARIABLES    ---------------
 var ocupada = false
+# ---------------- SEÑALES    ---------------
 signal acertado;
-
+# ---------------- FUNCION READY
 func _ready():
 	$Palabra.text = ''
-
+# ---------------- MENEJADOR SEÑAL -> UNA FICHA INGRESA EN LA RANURA
 func _on_Ranura_body_entered(body):
 	if !ocupada:
 		if palabra == body.palabra:

@@ -69,6 +69,7 @@ tracks/1/keys = {
 }
 
 [node name="Puzzle" type="Node2D"]
+modulate = Color( 1, 1, 1, 0 )
 light_mask = 524288
 z_index = 700
 script = ExtResource( 4 )
@@ -127,6 +128,7 @@ position = Vector2( 185.838, 80.7259 )
 position = Vector2( 423.811, 76.5214 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 2.0
 anims/MOSTRAR = SubResource( 1 )
 anims/OCULTAR = SubResource( 2 )
 
