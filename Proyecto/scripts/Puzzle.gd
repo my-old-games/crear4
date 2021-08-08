@@ -5,6 +5,7 @@ var cartas
 var visible_ui = false
 # ---------------- SEÑALES    ---------------
 signal completado
+signal cerrado
 # ---------------- FUNCION READY
 func _ready():
 	modulate    = Color(1,1,1,0)
@@ -37,6 +38,7 @@ func _on_Panel_verPuzzle():
 # ---------------- MENEJADOR SEÑAL -> PRESIONAR BOTON CERRAR
 func _on_CloseButton_pressed():
 	if esta_visible():
+		emit_signal("cerrado")
 		ocultar_Puzzle()
 # ---------------- MENEJADOR SEÑAL -> FINALIZAR ANIMACION
 func _on_AnimationPlayer_animation_finished(anim_name):

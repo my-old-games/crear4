@@ -83,6 +83,8 @@ position = Vector2( 97.9804, 333.299 )
 [node name="Controles" parent="." instance=ExtResource( 3 )]
 
 [connection signal="verCuadro" from="Cuadros/Cuadro" to="CuadroUI" method="mostrar_ui"]
+[connection signal="cerrado" from="CuadroUI" to="Suyay" method="reiniciar"]
 [connection signal="verPuzzle" from="Paneles/Panel" to="Puzzles/Puzzle" method="_on_Panel_verPuzzle"]
-[connection signal="completado" from="Puzzles/Puzzle" to="Pines/Pin" method="_on_Puzzle_completado"]
+[connection signal="cerrado" from="Puzzles/Puzzle" to="Suyay" method="reiniciar"]
 [connection signal="completado" from="Puzzles/Puzzle" to="." method="_on_Puzzle_completado"]
+[connection signal="completado" from="Puzzles/Puzzle" to="Pines/Pin" method="_on_Puzzle_completado"]

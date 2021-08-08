@@ -10,3 +10,6 @@ func mostrar_Carta():
 # ---------------- MENEJADOR SEÑAL -> RANURA OCUPADA
 func _on_Ranura_acertado():
 	ocultar_Carta()
+
+func animar_avatar():
+	$Avatar.play('IDLE')

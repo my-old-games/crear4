@@ -17,7 +17,7 @@ func _input(event):
 		$AnimatedSprite.play("WALK")
 	if event.is_action_pressed("ui_see") and elemento != null:
 		$AnimatedSprite.play("SEE")
-	if event.is_action_released("ui_left") or event.is_action_released("ui_right"):
+	if event.is_action_released("ui_left") or event.is_action_released("ui_right") and  !event.is_action_pressed("ui_see"):
 		velocity.x = 0
 		$AnimatedSprite.play("IDLE")
 # ---------------- FUNCION PROCESS
@@ -27,6 +27,9 @@ func _process(delta):
 # ---------------- FUNCION PARA ANIMAR LA VISTA DE UN OBJETO
 func ver_objeto():
 	$AnimatedSprite.play("SEE")
+# ---------------- FUNCION PARA SALIR DE MODO VISTA DE OBJETO
+func reiniciar():
+	$AnimatedSprite.play("IDLE")
 # ---------------- MENEJADOR SEÑAL -> FINALIZAR ANIMACION
 func _on_AnimatedSprite_animation_finished():
 	match $AnimatedSprite.animation:

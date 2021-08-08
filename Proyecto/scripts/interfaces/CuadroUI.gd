@@ -3,6 +3,8 @@ extends CanvasLayer
 var visible_ui = false
 # ---------------- CONSTANTES ---------------
 const  SCALE_MAX = 1.5
+# ---------------- SEÑALES    ---------------
+signal cerrado
 # ---------------- FUNCION READY
 func _ready():
 	$Panel.modulate = Color(1,1,1,0)
@@ -28,4 +30,5 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 # ---------------- MENEJADOR SEÑAL -> PRESIONAR BOTON CERRAR
 func _on_CloseButton_pressed():
 	if esta_visible():
+		emit_signal("cerrado")
 		ocultar_ui()

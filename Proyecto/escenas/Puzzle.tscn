@@ -82,15 +82,13 @@ centered = false
 
 [node name="Cartas" type="Node2D" parent="."]
 position = Vector2( 557.513, 127.816 )
+scale = Vector2( 1.4, 1.4 )
 
 [node name="Carta01_San_Martin" parent="Cartas" instance=ExtResource( 7 )]
-modulate = Color( 1, 1, 1, 1 )
 
 [node name="Carta02_Sable" parent="Cartas" instance=ExtResource( 8 )]
-modulate = Color( 1, 1, 1, 1 )
 
 [node name="Carta03_Tiene" parent="Cartas" instance=ExtResource( 1 )]
-modulate = Color( 1, 1, 1, 1 )
 
 [node name="Ranuras" type="Node2D" parent="."]
 light_mask = 524288
@@ -137,12 +135,12 @@ position = Vector2( 439.865, -1.15941 )
 scale = Vector2( 0.5, 0.5 )
 normal = ExtResource( 6 )
 
-[connection signal="acertado" from="Ranuras/Ranura_San_Martin" to="Cartas/Carta01_San_Martin" method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura_San_Martin" to="." method="_on_Ranura_acertado"]
-[connection signal="acertado" from="Ranuras/Ranura_Sable" to="Cartas/Carta02_Sable" method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_San_Martin" to="Cartas/Carta01_San_Martin" method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura_Sable" to="." method="_on_Ranura_acertado"]
-[connection signal="acertado" from="Ranuras/Ranura_Tiene" to="Cartas/Carta03_Tiene" method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_Sable" to="Cartas/Carta02_Sable" method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura_Tiene" to="." method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_Tiene" to="Cartas/Carta03_Tiene" method="_on_Ranura_acertado"]
 [connection signal="hidecard" from="Ficha_San_Martin" to="Cartas/Carta01_San_Martin" method="ocultar_Carta"]
 [connection signal="showcard" from="Ficha_San_Martin" to="Cartas/Carta01_San_Martin" method="mostrar_Carta"]
 [connection signal="hidecard" from="Ficha_Sable" to="Cartas/Carta02_Sable" method="ocultar_Carta"]
