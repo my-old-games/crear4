@@ -54,8 +54,9 @@ scale = Vector2( 2.5, 2.5 )
 [node name="Cuadros" type="Node2D" parent="."]
 
 [node name="Cuadro" parent="Cuadros" instance=ExtResource( 7 )]
-position = Vector2( 153.647, 185.6 )
+position = Vector2( 178.544, 197.784 )
 scale = Vector2( 0.3, 0.3 )
+pista = false
 tiempo_pista = 3
 
 [node name="CuadroUI" parent="." instance=ExtResource( 9 )]
@@ -78,9 +79,10 @@ position = Vector2( 5.55585, 3.96851 )
 position = Vector2( -83.7445, -391.995 )
 
 [node name="Suyay" parent="." instance=ExtResource( 1 )]
-position = Vector2( 97.9804, 333.299 )
+position = Vector2( 88.4452, 352.369 )
 
 [node name="Controles" parent="." instance=ExtResource( 3 )]
+pista = false
 
 [connection signal="verCuadro" from="Cuadros/Cuadro" to="CuadroUI" method="mostrar_ui"]
 [connection signal="cerrado" from="CuadroUI" to="Suyay" method="reiniciar"]

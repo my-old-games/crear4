@@ -17,6 +17,7 @@ func _on_Timer_timeout():
 	$AnimationPlayer.play("BRILLAR")
 # ---------------- MENEJADOR SEÑAL -> ENTRA PLAYER AL AREA
 func _on_Panel_body_entered(body):
+	owner.pista()
 	body.elemento = self
 # ---------------- MENEJADOR SEÑAL -> SALE PLAYER DEL AREA
 func _on_Panel_body_exited(body):

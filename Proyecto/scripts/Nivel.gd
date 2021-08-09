@@ -9,9 +9,13 @@ func _ready():
 func verificar_pines():
 	for pin in pines:
 		print(pin.esta_abierto())
+# ---------------- FUNCION PARA ACTIVAR LA PISTA DE LA INTERFAZ
+func pista():
+	$Controles.pista_ver()
 # ---------------- MENEJADOR SEÑAL -> SE COMPLETO UN PUZZLE
 func _on_Puzzle_completado():
 	resueltos+= 1
 	#CONDICION DE VICTORIA DEL NIVEL
 	if pines.size() == resueltos:
 		$Mapa/Puerta.abrir_Puerta()
+		$Suyay.sorpresa()
