@@ -1,16 +1,17 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://escenas/cartas/Carta03_Tiene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://escenas/fichas/Ficha01_San_Martin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://escenas/Ranura.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/Puzzle.gd" type="Script" id=4]
 [ext_resource path="res://assets/imagenes/prototipo02/panel_beige.png" type="Texture" id=5]
-[ext_resource path="res://assets/imagenes/prototipo02/flatLight45.png" type="Texture" id=6]
+[ext_resource path="res://assets/imagenes/interfaz/botones/BotonesHUD_7.png" type="Texture" id=6]
 [ext_resource path="res://escenas/cartas/Carta01_San_Martin.tscn" type="PackedScene" id=7]
 [ext_resource path="res://escenas/cartas/Carta02_San_Martin_Sable.tscn" type="PackedScene" id=8]
 [ext_resource path="res://escenas/fichas/Ficha02_Sable.tscn" type="PackedScene" id=9]
 [ext_resource path="res://escenas/fichas/Ficha03_Tiene.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/imagenes/prototipo04/flecha.png" type="Texture" id=11]
+[ext_resource path="res://assets/imagenes/interfaz/botones/BotonesHUD_6.png" type="Texture" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "MOSTRAR"
@@ -131,16 +132,17 @@ anims/MOSTRAR = SubResource( 1 )
 anims/OCULTAR = SubResource( 2 )
 
 [node name="CloseButton" type="TouchScreenButton" parent="."]
-position = Vector2( 439.865, -1.15941 )
+position = Vector2( 445.484, 5.58297 )
 scale = Vector2( 0.5, 0.5 )
-normal = ExtResource( 6 )
+normal = ExtResource( 12 )
+pressed = ExtResource( 6 )
 
-[connection signal="acertado" from="Ranuras/Ranura_San_Martin" to="." method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura_San_Martin" to="Cartas/Carta01_San_Martin" method="_on_Ranura_acertado"]
-[connection signal="acertado" from="Ranuras/Ranura_Sable" to="." method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_San_Martin" to="." method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura_Sable" to="Cartas/Carta02_Sable" method="_on_Ranura_acertado"]
-[connection signal="acertado" from="Ranuras/Ranura_Tiene" to="." method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_Sable" to="." method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura_Tiene" to="Cartas/Carta03_Tiene" method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_Tiene" to="." method="_on_Ranura_acertado"]
 [connection signal="hidecard" from="Ficha_San_Martin" to="Cartas/Carta01_San_Martin" method="ocultar_Carta"]
 [connection signal="showcard" from="Ficha_San_Martin" to="Cartas/Carta01_San_Martin" method="mostrar_Carta"]
 [connection signal="hidecard" from="Ficha_Sable" to="Cartas/Carta02_Sable" method="ocultar_Carta"]

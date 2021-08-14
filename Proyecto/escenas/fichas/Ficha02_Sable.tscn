@@ -6,7 +6,6 @@
 [node name="Ficha_Sable" instance=ExtResource( 1 )]
 palabra = "SABLE"
 
-[node name="Imagen" parent="." index="0"]
-position = Vector2( -0.749146, 0 )
-scale = Vector2( 0.05, 0.05 )
+[node name="Imagen" parent="." index="1"]
+scale = Vector2( 0.038, 0.04 )
 texture = ExtResource( 2 )

@@ -21,4 +21,10 @@ func _on_Ranura_body_entered(body):
 			body.animar_acierto()
 		else:
 			body._set_drag_pc()
+			$AnimatedSprite.play("ERROR")
 			body.animar_error()
+
+
+func _on_AnimatedSprite_animation_finished():
+	if $AnimatedSprite.animation  == "ERROR":
+		$AnimatedSprite.play("LIBRE")

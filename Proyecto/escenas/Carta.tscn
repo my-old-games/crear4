@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/imagenes/prototipo02/cardBack_red1.png" type="Texture" id=1]
+[ext_resource path="res://assets/imagenes/puzzle/Carta.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Carta.gd" type="Script" id=2]
 [ext_resource path="res://assets/fuentes/Rubik-Italic.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 54.2702, 74.58 )
+extents = Vector2( 37.3746, 78.1736 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [  ],
 "loop": true,
@@ -15,15 +15,14 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 10
-outline_size = 2
-outline_color = Color( 0.843137, 0.792157, 0.568627, 1 )
+outline_size = 1
+outline_color = Color( 1, 0.996078, 0.992157, 1 )
 use_filter = true
 font_data = ExtResource( 3 )
 
-[sub_resource type="Animation" id=3]
-resource_name = "MOSTRAR"
+[sub_resource type="Animation" id=4]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -52,8 +51,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "OCULTAR"
+[sub_resource type="Animation" id=5]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -83,16 +81,16 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Avatar" type="AnimatedSprite" parent="."]
-frames = SubResource( 5 )
+frames = SubResource( 2 )
 animation = "IDLE"
 
 [node name="Label" type="Label" parent="."]
-margin_left = -50.6415
-margin_top = 56.4643
-margin_right = 49.3585
-margin_bottom = 76.4643
-rect_min_size = Vector2( 100, 20 )
-custom_fonts/font = SubResource( 2 )
+margin_left = -44.5632
+margin_top = 54.15
+margin_right = 51.4368
+margin_bottom = 74.15
+rect_min_size = Vector2( 80, 20 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "TEXTO REFERENCIA"
 align = 1
@@ -102,5 +100,5 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.0
-anims/MOSTRAR = SubResource( 3 )
-anims/OCULTAR = SubResource( 4 )
+anims/MOSTRAR = SubResource( 4 )
+anims/OCULTAR = SubResource( 5 )

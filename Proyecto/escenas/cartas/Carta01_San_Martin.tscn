@@ -15,7 +15,7 @@ animations = [ {
 palabra = "SAN MARTIN"
 
 [node name="Avatar" parent="." index="2"]
-scale = Vector2( 0.28, 0.28 )
+scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
 
 [node name="Label" parent="." index="3"]
