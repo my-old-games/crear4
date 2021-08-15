@@ -24,7 +24,7 @@ func _input(event):
 			$AnimatedSprite.play("WALK")
 		if event.is_action_released("ui_left") or event.is_action_released("ui_right"):
 			velocity.x = 0
-			if elemento != null:
+			if elemento != null and !event.is_action_pressed("ui_see"):
 				$AnimatedSprite.play("DOUBT")
 			else:
 				$AnimatedSprite.play("IDLE")

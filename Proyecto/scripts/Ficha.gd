@@ -47,7 +47,7 @@ func _set_drag_pc():
 			esperar_reposicion()
 # ---------------- MENEJADOR SEÑAL -> INPUT SOBRE LA FICHA
 func _on_Ficha_input_event(_viewport, event, _shape_idx):
-	if pick:
+	if pick and !acertada:
 		if event is InputEventMouseButton:
 			if event.button_index == BUTTON_LEFT and event.pressed:
 				emit_signal("dragsignal")

@@ -4,8 +4,8 @@
 [ext_resource path="res://assets/imagenes/prototipo03/SAN-MARTIN-CARD.png" type="Texture" id=2]
 [ext_resource path="res://scripts/Ficha.gd" type="Script" id=3]
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 25.125, 25.875 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 21.875, 21.875 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "ACIERTO"
@@ -43,6 +43,7 @@ input_pickable = true
 collision_layer = 128
 collision_mask = 64
 script = ExtResource( 3 )
+tiempo_reposicion = 0.4
 
 [node name="Borde" type="Sprite" parent="."]
 scale = Vector2( 0.7, 0.7 )
@@ -54,7 +55,7 @@ scale = Vector2( 0.12, 0.12 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]
 
