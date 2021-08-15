@@ -17,8 +17,8 @@ animations = [ {
 
 [sub_resource type="DynamicFont" id=3]
 size = 10
-outline_size = 1
-outline_color = Color( 1, 0.996078, 0.992157, 1 )
+outline_size = 2
+outline_color = Color( 0.231373, 0.176471, 0.0235294, 1 )
 use_filter = true
 font_data = ExtResource( 3 )
 
@@ -91,7 +91,7 @@ margin_right = 51.4368
 margin_bottom = 74.15
 rect_min_size = Vector2( 80, 20 )
 custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "TEXTO REFERENCIA"
 align = 1
 __meta__ = {

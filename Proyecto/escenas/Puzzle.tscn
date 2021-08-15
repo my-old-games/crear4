@@ -1,10 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://escenas/cartas/Carta03_Tiene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://escenas/fichas/Ficha01_San_Martin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://escenas/Ranura.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/Puzzle.gd" type="Script" id=4]
-[ext_resource path="res://assets/imagenes/prototipo02/panel_beige.png" type="Texture" id=5]
+[ext_resource path="res://assets/imagenes/interfaz/paneles/PanelRompeCabezas.png" type="Texture" id=5]
 [ext_resource path="res://assets/imagenes/interfaz/botones/BotonesHUD_7.png" type="Texture" id=6]
 [ext_resource path="res://escenas/cartas/Carta01_San_Martin.tscn" type="PackedScene" id=7]
 [ext_resource path="res://escenas/cartas/Carta02_San_Martin_Sable.tscn" type="PackedScene" id=8]
@@ -12,6 +12,31 @@
 [ext_resource path="res://escenas/fichas/Ficha03_Tiene.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/imagenes/prototipo04/flecha.png" type="Texture" id=11]
 [ext_resource path="res://assets/imagenes/interfaz/botones/BotonesHUD_6.png" type="Texture" id=12]
+[ext_resource path="res://assets/imagenes/interfaz/CandadoUI.png" type="Texture" id=13]
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 13 )
+region = Rect2( 150, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 13 )
+region = Rect2( 300, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 13 )
+region = Rect2( 450, 0, 150, 150 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": false,
+"name": "OPEN",
+"speed": 3.0
+} ]
 
 [sub_resource type="Animation" id=1]
 resource_name = "MOSTRAR"
@@ -70,19 +95,22 @@ tracks/1/keys = {
 }
 
 [node name="Puzzle" type="Node2D"]
-modulate = Color( 1, 1, 1, 0 )
 light_mask = 524288
 z_index = 700
 script = ExtResource( 4 )
 
 [node name="Fondo" type="Sprite" parent="."]
-position = Vector2( 124.645, 7.07107 )
-scale = Vector2( 3.5, 3.5 )
+position = Vector2( 103.424, 27.278 )
 texture = ExtResource( 5 )
 centered = false
 
+[node name="Candado" type="AnimatedSprite" parent="."]
+position = Vector2( 308.222, 109.567 )
+frames = SubResource( 7 )
+animation = "OPEN"
+
 [node name="Cartas" type="Node2D" parent="."]
-position = Vector2( 557.513, 127.816 )
+position = Vector2( 575.718, 139.278 )
 scale = Vector2( 1.4, 1.4 )
 
 [node name="Carta01_San_Martin" parent="Cartas" instance=ExtResource( 7 )]
@@ -93,38 +121,42 @@ scale = Vector2( 1.4, 1.4 )
 
 [node name="Ranuras" type="Node2D" parent="."]
 light_mask = 524288
-position = Vector2( 13.435, -65.0538 )
+position = Vector2( 13.435, -76.2911 )
 
 [node name="Ranura_San_Martin" parent="Ranuras" instance=ExtResource( 3 )]
-position = Vector2( 180.413, 312.715 )
+position = Vector2( 172.403, 311.656 )
 palabra = "SAN MARTIN"
 
 [node name="Ranura_Sable" parent="Ranuras" instance=ExtResource( 3 )]
-position = Vector2( 399.223, 313.599 )
+position = Vector2( 410.376, 313.599 )
 palabra = "SABLE"
 
 [node name="Ranura_Tiene" parent="Ranuras" instance=ExtResource( 3 )]
-position = Vector2( 290.6, 311.656 )
+position = Vector2( 294.787, 313.599 )
 palabra = "TIENE"
 
-[node name="Sprite2" type="Sprite" parent="."]
+[node name="Fichas" type="Node2D" parent="."]
+
+[node name="Ficha_San_Martin" parent="Fichas" instance=ExtResource( 2 )]
+position = Vector2( 299.358, 81.5667 )
+
+[node name="Ficha_Sable" parent="Fichas" instance=ExtResource( 9 )]
+position = Vector2( 185.838, 80.7259 )
+
+[node name="Ficha_Tiene" parent="Fichas" instance=ExtResource( 10 )]
+position = Vector2( 423.811, 76.5214 )
+
+[node name="Flechas" type="Node2D" parent="."]
+
+[node name="Sprite2" type="Sprite" parent="Flechas"]
 position = Vector2( 250.755, 249.934 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 11 )
 
-[node name="Sprite4" type="Sprite" parent="."]
+[node name="Sprite4" type="Sprite" parent="Flechas"]
 position = Vector2( 360.072, 249.513 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 11 )
-
-[node name="Ficha_San_Martin" parent="." instance=ExtResource( 2 )]
-position = Vector2( 299.358, 81.5667 )
-
-[node name="Ficha_Sable" parent="." instance=ExtResource( 9 )]
-position = Vector2( 185.838, 80.7259 )
-
-[node name="Ficha_Tiene" parent="." instance=ExtResource( 10 )]
-position = Vector2( 423.811, 76.5214 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.0
@@ -132,22 +164,23 @@ anims/MOSTRAR = SubResource( 1 )
 anims/OCULTAR = SubResource( 2 )
 
 [node name="CloseButton" type="TouchScreenButton" parent="."]
-position = Vector2( 445.484, 5.58297 )
+position = Vector2( 479.324, 26.7536 )
 scale = Vector2( 0.5, 0.5 )
 normal = ExtResource( 12 )
 pressed = ExtResource( 6 )
 
-[connection signal="acertado" from="Ranuras/Ranura_San_Martin" to="Cartas/Carta01_San_Martin" method="_on_Ranura_acertado"]
+[connection signal="animation_finished" from="Candado" to="." method="_on_Candado_animation_finished"]
 [connection signal="acertado" from="Ranuras/Ranura_San_Martin" to="." method="_on_Ranura_acertado"]
-[connection signal="acertado" from="Ranuras/Ranura_Sable" to="Cartas/Carta02_Sable" method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_San_Martin" to="Cartas/Carta01_San_Martin" method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura_Sable" to="." method="_on_Ranura_acertado"]
-[connection signal="acertado" from="Ranuras/Ranura_Tiene" to="Cartas/Carta03_Tiene" method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_Sable" to="Cartas/Carta02_Sable" method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura_Tiene" to="." method="_on_Ranura_acertado"]
-[connection signal="hidecard" from="Ficha_San_Martin" to="Cartas/Carta01_San_Martin" method="ocultar_Carta"]
-[connection signal="showcard" from="Ficha_San_Martin" to="Cartas/Carta01_San_Martin" method="mostrar_Carta"]
-[connection signal="hidecard" from="Ficha_Sable" to="Cartas/Carta02_Sable" method="ocultar_Carta"]
-[connection signal="showcard" from="Ficha_Sable" to="Cartas/Carta02_Sable" method="mostrar_Carta"]
-[connection signal="hidecard" from="Ficha_Tiene" to="Cartas/Carta03_Tiene" method="ocultar_Carta"]
-[connection signal="showcard" from="Ficha_Tiene" to="Cartas/Carta03_Tiene" method="mostrar_Carta"]
+[connection signal="acertado" from="Ranuras/Ranura_Tiene" to="Cartas/Carta03_Tiene" method="_on_Ranura_acertado"]
+[connection signal="hidecard" from="Fichas/Ficha_San_Martin" to="Cartas/Carta01_San_Martin" method="ocultar_Carta"]
+[connection signal="showcard" from="Fichas/Ficha_San_Martin" to="Cartas/Carta01_San_Martin" method="mostrar_Carta"]
+[connection signal="hidecard" from="Fichas/Ficha_Sable" to="Cartas/Carta02_Sable" method="ocultar_Carta"]
+[connection signal="showcard" from="Fichas/Ficha_Sable" to="Cartas/Carta02_Sable" method="mostrar_Carta"]
+[connection signal="hidecard" from="Fichas/Ficha_Tiene" to="Cartas/Carta03_Tiene" method="ocultar_Carta"]
+[connection signal="showcard" from="Fichas/Ficha_Tiene" to="Cartas/Carta03_Tiene" method="mostrar_Carta"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="pressed" from="CloseButton" to="." method="_on_CloseButton_pressed"]

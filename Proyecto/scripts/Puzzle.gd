@@ -13,6 +13,7 @@ func _ready():
 	cartas  = $Cartas.get_children()
 	for carta in cartas:
 		carta.ocultar_Carta()
+	$Candado.hide()
 # ---------------- FUNCION PARA OCULTAR
 func ocultar_Puzzle():
 	$AnimationPlayer.play("OCULTAR")
@@ -30,8 +31,9 @@ func _on_Ranura_acertado():
 		if ranura.ocupada:
 			ocupados += 1
 	if ocupados == ranuras.size():
-		emit_signal("completado")
-		ocultar_Puzzle()
+		$Candado.show()
+		$Candado.play("OPEN")
+		
 # ---------------- MENEJADOR SEÑAL -> ORDEN DE VISUALIZAR
 func _on_Panel_verPuzzle():
 	mostrar_Puzzle()
@@ -40,10 +42,14 @@ func _on_CloseButton_pressed():
 	if esta_visible():
 		emit_signal("cerrado")
 		ocultar_Puzzle()
-# ---------------- MENEJADOR SEÑAL -> FINALIZAR ANIMACION
+# ---------------- MENEJADOR SEÑAL -> FINALIZAR ANIMACION PANEL
 func _on_AnimationPlayer_animation_finished(anim_name):
 	match anim_name:
 		'MOSTRAR':
 			visible_ui = true
 		'OCULTAR':
 			visible_ui = false
+# ---------------- MENEJADOR SEÑAL -> FINALIZAR ANIMACION CANDADO
+func _on_Candado_animation_finished():
+	emit_signal("completado")
+	ocultar_Puzzle()

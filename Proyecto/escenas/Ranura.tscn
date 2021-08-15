@@ -5,59 +5,59 @@
 [ext_resource path="res://assets/fuentes/Rubik-Italic.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/imagenes/puzzle/RanuraError.png" type="Texture" id=4]
 
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 4 )
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 100, 100 )
 
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 4 )
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
 region = Rect2( 100, 0, 100, 100 )
 
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 4 )
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
 region = Rect2( 200, 0, 100, 100 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 100, 100 )
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 1 )
-region = Rect2( 100, 0, 100, 100 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 1 )
-region = Rect2( 200, 0, 100, 100 )
-
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 1 )
 region = Rect2( 300, 0, 100, 100 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
+region = Rect2( 100, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 4 )
+region = Rect2( 200, 0, 100, 100 )
+
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
-"loop": false,
-"name": "ERROR",
-"speed": 8.0
-}, {
-"frames": [ SubResource( 4 ) ],
+"frames": [ SubResource( 1 ) ],
 "loop": false,
 "name": "LIBRE",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": false,
 "name": "OCUPADA",
 "speed": 8.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": false,
+"name": "ERROR",
+"speed": 8.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 21.25, 22.25 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 15
-outline_size = 1
-outline_color = Color( 0.0313726, 0.623529, 0.286275, 1 )
+[sub_resource type="DynamicFont" id=10]
+size = 12
+outline_size = 2
+outline_color = Color( 0.231373, 0.176471, 0.0235294, 1 )
 font_data = ExtResource( 3 )
 
 [node name="Ranura" type="Area2D"]
@@ -67,19 +67,19 @@ collision_mask = 128
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 1 )
+frames = SubResource( 8 )
 animation = "ERROR"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="Palabra" type="Label" parent="."]
-margin_left = -63.3343
-margin_top = 48.4202
-margin_right = 66.6657
-margin_bottom = 78.4202
-rect_min_size = Vector2( 130, 30 )
-custom_fonts/font = SubResource( 3 )
+margin_left = -49.8343
+margin_top = 50.9202
+margin_right = 50.1657
+margin_bottom = 80.9202
+rect_min_size = Vector2( 100, 30 )
+custom_fonts/font = SubResource( 10 )
 text = "SAN MARTIN"
 align = 1
 __meta__ = {
