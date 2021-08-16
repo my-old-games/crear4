@@ -34,7 +34,7 @@ palabra = "TIENE"
 position = Vector2( 0.332916, -11.666 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 5 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="Label" parent="." index="3"]
