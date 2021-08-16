@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/imagenes/cartas/Bandera.png" type="Texture" id=1]
+[ext_resource path="res://escenas/Carta.tscn" type="PackedScene" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 5.0
+} ]
+
+[node name="Carta02_Bandera" instance=ExtResource( 2 )]
+palabra = "BANDERA"
+
+[node name="Avatar" parent="." index="2"]
+scale = Vector2( 0.28, 0.28 )
+frames = SubResource( 1 )
+
+[node name="Label" parent="." index="3"]
+text = "BANDERA"

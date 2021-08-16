@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/imagenes/mapa/Cuadro100x200.png" type="Texture" id=1]
-[ext_resource path="res://assets/imagenes/prototipo03/san-martin.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/imagenes/cartas/SanMartin.png" type="Texture" id=2]
 [ext_resource path="res://scripts/Cuadro.gd" type="Script" id=3]
 
 [sub_resource type="Animation" id=1]
@@ -41,10 +41,10 @@ collision_layer = 4
 script = ExtResource( 3 )
 
 [node name="Pintura" type="Sprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 1.8, 1.8 )
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 600, 1200 )
+region_rect = Rect2( 50, 20, 150, 310 )
 
 [node name="Borde" type="Sprite" parent="."]
 scale = Vector2( 3, 3 )

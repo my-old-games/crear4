@@ -19,3 +19,6 @@ func _on_Puzzle_completado():
 	if pines.size() == resueltos:
 		$Mapa/Puerta.abrir_Puerta()
 		$Suyay.sorpresa()
+# ---------------- MENEJADOR SEÑAL -> BOTON SALIR DEL NIVEL PRESIONADO
+func _on_Salir_pressed():
+	get_tree().change_scene("res://interfaces/Inicio.tscn")
