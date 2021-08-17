@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://escenas/Ficha.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/imagenes/puzzle/fichas/Fichas_Comer.png" type="Texture" id=2]
+
+[node name="Ficha_Comer" instance=ExtResource( 1 )]
+palabra = "COMER"
+
+[node name="Imagen" parent="." index="1"]
+position = Vector2( -0.538922, -2.52269 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+region_enabled = false

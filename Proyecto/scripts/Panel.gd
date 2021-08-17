@@ -17,3 +17,4 @@ func _on_Panel_body_exited(body):
 # ---------------- MENEJADOR SEÑAL -> CUANDO EL ROMPECABEZAS ASOCIADO SE COMPLETA
 func panel_completado():
 	$AnimatedSprite.play("COMPLETADO")
+

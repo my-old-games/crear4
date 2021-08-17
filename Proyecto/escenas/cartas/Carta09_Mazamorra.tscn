@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://escenas/Carta.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/imagenes/cartas/Mazamorra.png" type="Texture" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 5.0
+} ]
+
+[node name="Carta09_Mazamorra" instance=ExtResource( 1 )]
+palabra = "MAZAMORRA"
+
+[node name="Avatar" parent="." index="2"]
+position = Vector2( 0, 0.374588 )
+scale = Vector2( 0.15, 0.15 )
+frames = SubResource( 1 )
+
+[node name="Label" parent="." index="3"]
+margin_left = -47.6254
+margin_top = 48.3746
+margin_right = 48.3746
+margin_bottom = 68.3746
+text = "MAZAMORRA"

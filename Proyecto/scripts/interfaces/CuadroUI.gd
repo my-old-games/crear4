@@ -2,7 +2,7 @@ extends CanvasLayer
 # ---------------- VARIABLES  ---------------
 var visible_ui = false
 # ---------------- CONSTANTES ---------------
-const  SCALE_MAX = 1.3
+const  SCALE_MAX = 1.2
 # ---------------- SEÑALES    ---------------
 signal cerrado
 # ---------------- FUNCION READY

@@ -11,3 +11,5 @@ func esta_abierto():
 # ---------------- MENEJADOR SEÑAL -> SE COMPLETO UN PUZZLE
 func _on_Puzzle_completado():
 	self.abrir_Pin()
+
+

@@ -8,7 +8,7 @@ signal completado
 signal cerrado
 # ---------------- FUNCION READY
 func _ready():
-	modulate    = Color(1,1,1,0)
+	#modulate    = Color(1,1,1,0)
 	ranuras = $Ranuras.get_children()
 	cartas  = $Cartas.get_children()
 	for carta in cartas:
