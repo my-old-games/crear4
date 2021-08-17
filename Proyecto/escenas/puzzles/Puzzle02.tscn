@@ -1,18 +1,20 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://escenas/cartas/Carta03_Tiene.tscn" type="PackedScene" id=1]
-[ext_resource path="res://escenas/fichas/Ficha01_San_Martin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://escenas/Ranura.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/Puzzle.gd" type="Script" id=4]
 [ext_resource path="res://assets/imagenes/interfaz/paneles/PanelRompeCabezas.png" type="Texture" id=5]
 [ext_resource path="res://assets/imagenes/interfaz/botones/BotonesHUD_7.png" type="Texture" id=6]
-[ext_resource path="res://escenas/cartas/Carta01_San_Martin.tscn" type="PackedScene" id=7]
 [ext_resource path="res://escenas/cartas/Carta02_Bandera.tscn" type="PackedScene" id=8]
 [ext_resource path="res://escenas/fichas/Ficha02_Bandera.tscn" type="PackedScene" id=9]
 [ext_resource path="res://escenas/fichas/Ficha03_Tiene.tscn" type="PackedScene" id=10]
+[ext_resource path="res://escenas/cartas/Carta04_Belgrano.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/imagenes/interfaz/botones/BotonesHUD_6.png" type="Texture" id=12]
 [ext_resource path="res://assets/imagenes/interfaz/CandadoUI.png" type="Texture" id=13]
 [ext_resource path="res://interfaces/elementos/Flecha.tscn" type="PackedScene" id=14]
+[ext_resource path="res://escenas/cartas/Carta05_Crear.tscn" type="PackedScene" id=15]
+[ext_resource path="res://escenas/fichas/Ficha04_Belgrano.tscn" type="PackedScene" id=16]
+[ext_resource path="res://escenas/fichas/Ficha05_Crear.tscn" type="PackedScene" id=17]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 13 )
@@ -99,11 +101,12 @@ script = ExtResource( 4 )
 
 [node name="Fondo" type="Sprite" parent="."]
 position = Vector2( 103.424, 27.278 )
+scale = Vector2( 1, 1.1 )
 texture = ExtResource( 5 )
 centered = false
 
 [node name="Candado" type="AnimatedSprite" parent="."]
-position = Vector2( 308.222, 109.567 )
+position = Vector2( 301.858, 81.9898 )
 frames = SubResource( 5 )
 animation = "OPEN"
 
@@ -111,49 +114,67 @@ animation = "OPEN"
 position = Vector2( 575.718, 139.278 )
 scale = Vector2( 1.4, 1.4 )
 
-[node name="Carta01_San_Martin" parent="Cartas" instance=ExtResource( 7 )]
-
 [node name="Carta02_Bandera" parent="Cartas" instance=ExtResource( 8 )]
 
 [node name="Carta03_Tiene" parent="Cartas" instance=ExtResource( 1 )]
+
+[node name="Carta05_Crear" parent="Cartas" instance=ExtResource( 15 )]
+
+[node name="Carta04_Belgrano" parent="Cartas" instance=ExtResource( 11 )]
 
 [node name="Ranuras" type="Node2D" parent="."]
 light_mask = 524288
 position = Vector2( 13.435, -76.2911 )
 
-[node name="Ranura_San_Martin" parent="Ranuras" instance=ExtResource( 3 )]
-position = Vector2( 172.403, 311.656 )
-palabra = "SAN MARTIN"
+[node name="Ranura_Belgrano" parent="Ranuras" instance=ExtResource( 3 )]
+position = Vector2( 166.928, 310.894 )
+scale = Vector2( 0.8, 0.8 )
+palabra = "BELGRANO"
 
-[node name="Ranura_Bandera" parent="Ranuras" instance=ExtResource( 3 )]
-position = Vector2( 418.403, 313.599 )
-palabra = "BANDERA"
+[node name="Ranura_Crear" parent="Ranuras" instance=ExtResource( 3 )]
+position = Vector2( 289.666, 355.11 )
+scale = Vector2( 0.8, 0.8 )
+palabra = "CREAR"
 
 [node name="Ranura_Tiene" parent="Ranuras" instance=ExtResource( 3 )]
-position = Vector2( 294.787, 313.599 )
+position = Vector2( 290.795, 259.402 )
+scale = Vector2( 0.8, 0.8 )
 palabra = "TIENE"
+
+[node name="Ranura_Bandera" parent="Ranuras" instance=ExtResource( 3 )]
+position = Vector2( 417.273, 307.087 )
+scale = Vector2( 0.8, 0.8 )
+palabra = "BANDERA"
 
 [node name="Fichas" type="Node2D" parent="."]
 
-[node name="Ficha_San_Martin" parent="Fichas" instance=ExtResource( 2 )]
-position = Vector2( 299.358, 81.5667 )
-tiempo_reposicion = 0.8
-
-[node name="Ficha_Sable" parent="Fichas" instance=ExtResource( 9 )]
-position = Vector2( 185.838, 80.7259 )
+[node name="Ficha_Bandera" parent="Fichas" instance=ExtResource( 9 )]
+position = Vector2( 163.431, 87.8477 )
 tiempo_reposicion = 0.8
 
 [node name="Ficha_Tiene" parent="Fichas" instance=ExtResource( 10 )]
-position = Vector2( 423.811, 76.5214 )
+position = Vector2( 240.485, 85.4324 )
 tiempo_reposicion = 0.8
+
+[node name="Ficha_Belgrano" parent="Fichas" instance=ExtResource( 16 )]
+position = Vector2( 366.007, 84.563 )
+
+[node name="Ficha_Crear" parent="Fichas" instance=ExtResource( 17 )]
+position = Vector2( 448.094, 85.7521 )
 
 [node name="Flechas" type="Node2D" parent="."]
 
 [node name="Flecha" parent="Flechas" instance=ExtResource( 14 )]
-position = Vector2( 247.117, 237.308 )
+position = Vector2( 241.29, 263.795 )
 
 [node name="Flecha2" parent="Flechas" instance=ExtResource( 14 )]
-position = Vector2( 369.332, 237.308 )
+position = Vector2( 366.154, 257.968 )
+
+[node name="Flecha3" parent="Flechas" instance=ExtResource( 14 )]
+position = Vector2( 365.624, 212.411 )
+
+[node name="Flecha4" parent="Flechas" instance=ExtResource( 14 )]
+position = Vector2( 240.607, 212.411 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.0
@@ -167,17 +188,21 @@ normal = ExtResource( 12 )
 pressed = ExtResource( 6 )
 
 [connection signal="animation_finished" from="Candado" to="." method="_on_Candado_animation_finished"]
-[connection signal="acertado" from="Ranuras/Ranura_San_Martin" to="." method="_on_Ranura_acertado"]
-[connection signal="acertado" from="Ranuras/Ranura_San_Martin" to="Cartas/Carta01_San_Martin" method="_on_Ranura_acertado"]
-[connection signal="acertado" from="Ranuras/Ranura_Bandera" to="." method="_on_Ranura_acertado"]
-[connection signal="acertado" from="Ranuras/Ranura_Bandera" to="Cartas/Carta02_Bandera" method="_on_Ranura_acertado"]
-[connection signal="acertado" from="Ranuras/Ranura_Tiene" to="." method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_Belgrano" to="." method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_Belgrano" to="Cartas/Carta04_Belgrano" method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_Crear" to="." method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_Crear" to="Cartas/Carta05_Crear" method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura_Tiene" to="Cartas/Carta03_Tiene" method="_on_Ranura_acertado"]
-[connection signal="hidecard" from="Fichas/Ficha_San_Martin" to="Cartas/Carta01_San_Martin" method="ocultar_Carta"]
-[connection signal="showcard" from="Fichas/Ficha_San_Martin" to="Cartas/Carta01_San_Martin" method="mostrar_Carta"]
-[connection signal="hidecard" from="Fichas/Ficha_Sable" to="Cartas/Carta02_Bandera" method="ocultar_Carta"]
-[connection signal="showcard" from="Fichas/Ficha_Sable" to="Cartas/Carta02_Bandera" method="mostrar_Carta"]
+[connection signal="acertado" from="Ranuras/Ranura_Tiene" to="." method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_Bandera" to="Cartas/Carta02_Bandera" method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_Bandera" to="." method="_on_Ranura_acertado"]
+[connection signal="hidecard" from="Fichas/Ficha_Bandera" to="Cartas/Carta02_Bandera" method="ocultar_Carta"]
+[connection signal="showcard" from="Fichas/Ficha_Bandera" to="Cartas/Carta02_Bandera" method="mostrar_Carta"]
 [connection signal="hidecard" from="Fichas/Ficha_Tiene" to="Cartas/Carta03_Tiene" method="ocultar_Carta"]
 [connection signal="showcard" from="Fichas/Ficha_Tiene" to="Cartas/Carta03_Tiene" method="mostrar_Carta"]
+[connection signal="hidecard" from="Fichas/Ficha_Belgrano" to="Cartas/Carta04_Belgrano" method="ocultar_Carta"]
+[connection signal="showcard" from="Fichas/Ficha_Belgrano" to="Cartas/Carta04_Belgrano" method="mostrar_Carta"]
+[connection signal="hidecard" from="Fichas/Ficha_Crear" to="Cartas/Carta05_Crear" method="ocultar_Carta"]
+[connection signal="showcard" from="Fichas/Ficha_Crear" to="Cartas/Carta05_Crear" method="mostrar_Carta"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="pressed" from="CloseButton" to="." method="_on_CloseButton_pressed"]

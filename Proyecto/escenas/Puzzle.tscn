@@ -167,12 +167,12 @@ normal = ExtResource( 12 )
 pressed = ExtResource( 6 )
 
 [connection signal="animation_finished" from="Candado" to="." method="_on_Candado_animation_finished"]
-[connection signal="acertado" from="Ranuras/Ranura_San_Martin" to="." method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura_San_Martin" to="Cartas/Carta01_San_Martin" method="_on_Ranura_acertado"]
-[connection signal="acertado" from="Ranuras/Ranura_Bandera" to="." method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_San_Martin" to="." method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura_Bandera" to="Cartas/Carta02_Bandera" method="_on_Ranura_acertado"]
-[connection signal="acertado" from="Ranuras/Ranura_Tiene" to="." method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_Bandera" to="." method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura_Tiene" to="Cartas/Carta03_Tiene" method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_Tiene" to="." method="_on_Ranura_acertado"]
 [connection signal="hidecard" from="Fichas/Ficha_San_Martin" to="Cartas/Carta01_San_Martin" method="ocultar_Carta"]
 [connection signal="showcard" from="Fichas/Ficha_San_Martin" to="Cartas/Carta01_San_Martin" method="mostrar_Carta"]
 [connection signal="hidecard" from="Fichas/Ficha_Sable" to="Cartas/Carta02_Bandera" method="ocultar_Carta"]
