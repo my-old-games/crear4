@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/imagenes/fondos/FondoInicio.png" type="Texture" id=1]
 [ext_resource path="res://assets/imagenes/interfaz/botones/BotonMenu_1.png" type="Texture" id=2]
@@ -7,7 +7,8 @@
 [ext_resource path="res://assets/fuentes/Rubik-Italic.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://scripts/interfaces/Inicio.gd" type="Script" id=6]
 [ext_resource path="res://assets/imagenes/Señas.png" type="Texture" id=7]
-[ext_resource path="res://assets/fuentes/Rubik-BlackItalic.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://assets/imagenes/interfaz/EsperanzaLSA.png" type="Texture" id=8]
+[ext_resource path="res://assets/imagenes/interfaz/LogoSuyay.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -24,36 +25,36 @@ use_filter = true
 font_data = ExtResource( 5 )
 
 [sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 7 )
-region = Rect2( 0, 2560, 512, 512 )
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 512, 512 )
 
 [sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 7 )
-region = Rect2( 512, 2560, 512, 512 )
+atlas = ExtResource( 8 )
+region = Rect2( 512, 0, 512, 512 )
 
 [sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 7 )
-region = Rect2( 1024, 2560, 512, 512 )
+atlas = ExtResource( 8 )
+region = Rect2( 1024, 0, 512, 512 )
 
 [sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 7 )
-region = Rect2( 1536, 2560, 512, 512 )
+atlas = ExtResource( 8 )
+region = Rect2( 1536, 0, 512, 512 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 7 )
-region = Rect2( 0, 4608, 512, 512 )
+region = Rect2( 0, 2560, 512, 512 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 7 )
-region = Rect2( 512, 4608, 512, 512 )
+region = Rect2( 512, 2560, 512, 512 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 7 )
-region = Rect2( 1024, 4608, 512, 512 )
+region = Rect2( 1024, 2560, 512, 512 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 7 )
-region = Rect2( 1536, 4608, 512, 512 )
+region = Rect2( 1536, 2560, 512, 512 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 7 )
@@ -75,12 +76,12 @@ region = Rect2( 1536, 2048, 512, 512 )
 animations = [ {
 "frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
-"name": "SALIR",
+"name": "ESPERANZA",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
-"name": "ESPERANZA",
+"name": "SALIR",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
@@ -88,21 +89,6 @@ animations = [ {
 "name": "JUGAR",
 "speed": 5.0
 } ]
-
-[sub_resource type="DynamicFont" id=16]
-size = 37
-outline_size = 6
-outline_color = Color( 0.584314, 0.466667, 0.298039, 1 )
-use_filter = true
-font_data = ExtResource( 8 )
-
-[sub_resource type="DynamicFont" id=17]
-size = 20
-outline_size = 2
-outline_color = Color( 0.0901961, 0.607843, 0.427451, 1 )
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 5 )
 
 [node name="Inicio" type="Node2D"]
 script = ExtResource( 6 )
@@ -168,31 +154,10 @@ scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 15 )
 animation = "ESPERANZA"
 
-[node name="Titulo" type="Label" parent="."]
-margin_left = 80.0
-margin_top = 16.0
-margin_right = 224.0
-margin_bottom = 64.0
-custom_fonts/font = SubResource( 16 )
-text = "SUYAY"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Titulo2" type="Label" parent="."]
-margin_left = 32.5092
-margin_top = 48.0
-margin_right = 277.509
-margin_bottom = 96.0
-custom_fonts/font = SubResource( 17 )
-text = "Una aventura en el museo"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="LogoSuyay" type="Sprite" parent="."]
+position = Vector2( 160.509, 64 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 9 )
 
 [connection signal="pressed" from="Jugar" to="." method="_on_Jugar_pressed"]
 [connection signal="pressed" from="Salir" to="." method="_on_Salir_pressed"]
