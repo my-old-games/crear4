@@ -1,15 +1,13 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://escenas/Suyay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://escenas/Puerta.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interfaces/Controles.tscn" type="PackedScene" id=3]
-[ext_resource path="res://escenas/Panel.tscn" type="PackedScene" id=4]
-[ext_resource path="res://escenas/Puzzle.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scripts/Nivel.gd" type="Script" id=6]
-[ext_resource path="res://escenas/Cuadro.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/imagenes/interfaz/Barrera.png" type="Texture" id=4]
+[ext_resource path="res://scripts/Creditos.gd" type="Script" id=5]
+[ext_resource path="res://assets/imagenes/fondos/Fondo2.png" type="Texture" id=7]
 [ext_resource path="res://escenas/Pin.tscn" type="PackedScene" id=8]
 [ext_resource path="res://interfaces/CuadroUI.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/imagenes/fondos/Fondo1.png" type="Texture" id=10]
 [ext_resource path="res://assets/imagenes/interfaz/botones/BotonesHUD_7.png" type="Texture" id=11]
 [ext_resource path="res://assets/imagenes/interfaz/botones/BotonesHUD_6.png" type="Texture" id=12]
 
@@ -19,12 +17,12 @@ extents = Vector2( 130.443, 10 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 320.018, 10 )
 
-[node name="Nivel01" type="Node2D"]
-script = ExtResource( 6 )
+[node name="Nivel99" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="Fondo" type="Sprite" parent="."]
 z_index = -1000
-texture = ExtResource( 10 )
+texture = ExtResource( 7 )
 centered = false
 
 [node name="Mapa" type="Node2D" parent="."]
@@ -59,30 +57,12 @@ shape = SubResource( 1 )
 position = Vector2( 319.457, 217.633 )
 scale = Vector2( 2.5, 2.5 )
 
-[node name="Cuadros" type="Node2D" parent="."]
-
-[node name="Cuadro" parent="Cuadros" instance=ExtResource( 7 )]
-position = Vector2( 144, 184 )
-scale = Vector2( 0.3, 0.3 )
-pista = false
-tiempo_pista = 3
-
 [node name="CuadroUI" parent="." instance=ExtResource( 9 )]
-
-[node name="Paneles" type="Node2D" parent="."]
-
-[node name="Panel" parent="Paneles" instance=ExtResource( 4 )]
-position = Vector2( 480, 264 )
 
 [node name="Pines" type="Node2D" parent="."]
 position = Vector2( 319.457, 108.4 )
 
 [node name="Pin" parent="Pines" instance=ExtResource( 8 )]
-
-[node name="Puzzles" type="Node2D" parent="."]
-
-[node name="Puzzle" parent="Puzzles" instance=ExtResource( 5 )]
-position = Vector2( -83.7445, -391.995 )
 
 [node name="Suyay" parent="." instance=ExtResource( 1 )]
 position = Vector2( 28, 327.539 )
@@ -96,11 +76,10 @@ scale = Vector2( 0.4, 0.4 )
 normal = ExtResource( 12 )
 pressed = ExtResource( 11 )
 
-[connection signal="verCuadro" from="Cuadros/Cuadro" to="CuadroUI" method="mostrar_ui"]
+[node name="Cartel" type="Sprite" parent="."]
+position = Vector2( 320, 264 )
+z_index = 450
+texture = ExtResource( 4 )
+
 [connection signal="cerrado" from="CuadroUI" to="Suyay" method="reiniciar"]
-[connection signal="verPuzzle" from="Paneles/Panel" to="Puzzles/Puzzle" method="_on_Panel_verPuzzle"]
-[connection signal="cerrado" from="Puzzles/Puzzle" to="Suyay" method="reiniciar"]
-[connection signal="completado" from="Puzzles/Puzzle" to="Pines/Pin" method="_on_Puzzle_completado"]
-[connection signal="completado" from="Puzzles/Puzzle" to="." method="_on_Puzzle_completado"]
-[connection signal="completado" from="Puzzles/Puzzle" to="Paneles/Panel" method="panel_completado"]
 [connection signal="pressed" from="Salir" to="." method="_on_Salir_pressed"]

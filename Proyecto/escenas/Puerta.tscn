@@ -37,7 +37,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 30.9887, 35.681 )
+extents = Vector2( 23.808, 28.0493 )
 
 [node name="Puerta" type="Area2D"]
 light_mask = 4
@@ -53,6 +53,7 @@ frames = SubResource( 6 )
 animation = "CERRADO"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.0140077, 6.86211 )
 shape = SubResource( 7 )
 
 [connection signal="body_entered" from="." to="." method="_on_Puerta_body_entered"]
