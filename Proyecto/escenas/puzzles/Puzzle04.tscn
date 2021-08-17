@@ -121,7 +121,7 @@ scale = Vector2( 1.4, 1.4 )
 light_mask = 524288
 position = Vector2( 13.435, -76.2911 )
 
-[node name="Ranura_Gaucho" parent="Ranuras" instance=ExtResource( 3 )]
+[node name="Ranura_Gaucho2" parent="Ranuras" instance=ExtResource( 3 )]
 position = Vector2( 172.403, 311.656 )
 palabra = "GAUCHO"
 
@@ -136,7 +136,7 @@ palabra = "COMER"
 [node name="Fichas" type="Node2D" parent="."]
 
 [node name="Ficha_Gaucho" parent="Fichas" instance=ExtResource( 2 )]
-position = Vector2( 420.729, 84.8528 )
+position = Vector2( 185.838, 235.365 )
 
 [node name="Ficha_Comer" parent="Fichas" instance=ExtResource( 10 )]
 position = Vector2( 304, 88 )
@@ -164,8 +164,8 @@ normal = ExtResource( 12 )
 pressed = ExtResource( 6 )
 
 [connection signal="animation_finished" from="Candado" to="." method="_on_Candado_animation_finished"]
-[connection signal="acertado" from="Ranuras/Ranura_Gaucho" to="." method="_on_Ranura_acertado"]
-[connection signal="acertado" from="Ranuras/Ranura_Gaucho" to="Cartas/Carta06_Gaucho" method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_Gaucho2" to="." method="_on_Ranura_acertado"]
+[connection signal="acertado" from="Ranuras/Ranura_Gaucho2" to="Cartas/Carta06_Gaucho" method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura_Mazamorra" to="." method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura_Mazamorra" to="Cartas/Carta09_Mazamorra" method="_on_Ranura_acertado"]
 [connection signal="acertado" from="Ranuras/Ranura_Comer" to="." method="_on_Ranura_acertado"]

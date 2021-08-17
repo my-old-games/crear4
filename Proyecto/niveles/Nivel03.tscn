@@ -64,12 +64,12 @@ scale = Vector2( 2.5, 2.5 )
 [node name="Cuadros" type="Node2D" parent="."]
 
 [node name="CuadroNivel3" parent="Cuadros" instance=ExtResource( 16 )]
-position = Vector2( 95.838, 212.021 )
+position = Vector2( 95.838, 234.788 )
 scale = Vector2( 0.16, 0.16 )
 pista = false
 
 [node name="CuadroNivel4" parent="Cuadros" instance=ExtResource( 15 )]
-position = Vector2( 536, 217.633 )
+position = Vector2( 592, 226.339 )
 scale = Vector2( 0.16, 0.16 )
 pista = false
 
@@ -78,10 +78,10 @@ pista = false
 [node name="Paneles" type="Node2D" parent="."]
 
 [node name="Panel" parent="Paneles" instance=ExtResource( 4 )]
-position = Vector2( 182.117, 260.021 )
+position = Vector2( 192, 260.021 )
 
 [node name="Panel2" parent="Paneles" instance=ExtResource( 4 )]
-position = Vector2( 456, 260.021 )
+position = Vector2( 471.324, 260.021 )
 
 [node name="Pines" type="Node2D" parent="."]
 position = Vector2( 319.457, 108.4 )
@@ -122,7 +122,7 @@ pressed = ExtResource( 11 )
 [connection signal="completado" from="Puzzles/PuzzleA" to="Pines/Pin" method="_on_Puzzle_completado"]
 [connection signal="completado" from="Puzzles/PuzzleA" to="." method="_on_Puzzle_completado"]
 [connection signal="cerrado" from="Puzzles/PuzzleB" to="Suyay" method="reiniciar"]
+[connection signal="completado" from="Puzzles/PuzzleB" to="Paneles/Panel2" method="panel_completado"]
 [connection signal="completado" from="Puzzles/PuzzleB" to="." method="_on_Puzzle_completado"]
 [connection signal="completado" from="Puzzles/PuzzleB" to="Pines/Pin2" method="_on_Puzzle_completado"]
-[connection signal="completado" from="Puzzles/PuzzleB" to="Paneles/Panel2" method="panel_completado"]
 [connection signal="pressed" from="Salir" to="." method="_on_Salir_pressed"]
