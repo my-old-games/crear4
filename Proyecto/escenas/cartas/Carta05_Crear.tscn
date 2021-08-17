@@ -3,38 +3,39 @@
 [ext_resource path="res://escenas/Carta.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/imagenes/Señas.png" type="Texture" id=2]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 512, 512 )
-
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
-region = Rect2( 512, 0, 512, 512 )
+region = Rect2( 0, 512, 512, 512 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 2 )
-region = Rect2( 1024, 0, 512, 512 )
+region = Rect2( 512, 512, 512, 512 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 2 )
-region = Rect2( 1536, 0, 512, 512 )
+region = Rect2( 1024, 512, 512, 512 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 1536, 512, 512, 512 )
+
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "IDLE",
-"speed": 4.0
+"speed": 5.0
 } ]
 
-[node name="Carta03_Tiene" instance=ExtResource( 1 )]
-palabra = "TIENE"
+[node name="Carta05_Crear" instance=ExtResource( 1 )]
+palabra = "CREAR"
 
 [node name="Avatar" parent="." index="2"]
 position = Vector2( 0.332916, -11.666 )
 scale = Vector2( 0.25, 0.25 )
-frames = SubResource( 5 )
+frames = SubResource( 1 )
+frame = 3
 playing = true
 
 [node name="Label" parent="." index="3"]
-text = "TIENE"
+text = "CREAR"
