@@ -99,7 +99,7 @@ pressed = ExtResource( 11 )
 [connection signal="cerrado" from="CuadroUI" to="Suyay" method="reiniciar"]
 [connection signal="verPuzzle" from="Paneles/Panel" to="Puzzles/Puzzle2" method="_on_Panel_verPuzzle"]
 [connection signal="cerrado" from="Puzzles/Puzzle2" to="Suyay" method="reiniciar"]
+[connection signal="completado" from="Puzzles/Puzzle2" to="Paneles/Panel" method="panel_completado"]
 [connection signal="completado" from="Puzzles/Puzzle2" to="." method="_on_Puzzle_completado"]
 [connection signal="completado" from="Puzzles/Puzzle2" to="Pines/Pin" method="_on_Puzzle_completado"]
-[connection signal="completado" from="Puzzles/Puzzle2" to="Paneles/Panel" method="panel_completado"]
 [connection signal="pressed" from="Salir" to="." method="_on_Salir_pressed"]
